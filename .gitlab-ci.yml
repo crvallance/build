@@ -7,9 +7,6 @@ after_script:
 
 build1:
   stage: build
-  variables:
-    - DEBIAN_FRONTEND: noninteractive
-    - DEBCONF_NONINTERACTIVE_SEEN: true
   script:
     - apt-get update
     - apt-get install sudo curl -y
