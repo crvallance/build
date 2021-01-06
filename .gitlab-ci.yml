@@ -9,8 +9,10 @@ after_script:
 
 build1:
   stage: build
+  variables:
+    - DEBIAN_FRONTEND: noninteractive
+    - DEBCONF_NONINTERACTIVE_SEEN: true
   script:
-    - export DEBIAN_FRONTEND=noninteractive DEBCONF_NONINTERACTIVE_SEEN=true
     - apt-get update
     - apt-get install sudo curl -y
     - rm /var/lib/dpkg/lock /var/lib/apt/lists/lock /var/cache/apt/archives/lock
