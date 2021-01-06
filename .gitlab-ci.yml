@@ -9,6 +9,6 @@ build1:
   stage: build
   script:
     - apt-get update
-    - apt-get install sudo curl -y
+    - apt-get install sudo curl build-essential git -y
     - rm /var/lib/dpkg/lock /var/lib/apt/lists/lock /var/cache/apt/archives/lock
     - /builds/crvallance/build/wp-compile.sh BOARD=rockpi-e
