@@ -1,0 +1,18 @@
+name: Build Docker image
+# This workflow is triggered 1st, 16th and 31st
+on:
+  schedule:
+    - cron: '0 0 */15 * *'
+jobs:
+  build:
+    name: latest
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v1
+     - name: Build Docker image
+       run: |
+        echo "latest" > VERSION
+        /wp-compile.sh BOARD="rockpi-e"       
+     - name: Copy image
+       run: |
+        echo "put something here to copy files"
